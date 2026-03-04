@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>AdopteUnCactus</title>
+
+  <style>
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:#fff}
+    body{
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .screen{
+      position:relative;
+      width:min(100vw, 420px);
+      overflow:hidden;
+      background:#000;
+    }
+
+    .bg{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Overlay visuel (NON cliquable) */
+    .overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none; /* clé : l'image ne capte pas les clics */
+      z-index:2;
+    }
+    .overlay img{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Hotspots cliquables */
+    .hotspot{
+      position:absolute;
+      display:block;
+      background:rgba(255,255,255,0);
+      -webkit-tap-highlight-color:transparent;
+      z-index:3;
+    }
+    .hotspot:active{
+      outline:2px solid rgba(255,255,255,.22);
+      border-radius:12px;
+    }
+
+    /* Flèche retour (en haut à gauche) */
+    .back{
+      left:0%;
+      top:0%;
+      width:18%;
+      height:12%;
+    }
+
+    /* COEUR (à ajuster si besoin) */
+    .heart{
+      left: 8%;
+    top: 52%;
+    width: 27%;
+    height: 10%;
+    border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="screen" aria-label="Cactus 2">
+    <!-- BG -->
+    <img class="bg" src="Bg2.jpg" alt="Profil AdopteUnCactus">
+
+    <!-- Overlay visuel du coeur (non cliquable) -->
+    <div class="overlay" aria-hidden="true">
+      <img src="btn2.png" alt="">
+    </div>
+
+    <!-- Seuls éléments cliquables -->
+    <a class="hotspot back" href="cactus1.html" aria-label="Revenir en arrière"></a>
+    <a class="hotspot heart" href="cactus3.html" aria-label="Cliquer sur le coeur"></a>
+  </main>
+</body>
+</html>

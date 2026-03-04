@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>AdopteUnCactus</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:#fff}
+    body{
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    /* Le “téléphone” garde le ratio de l’image */
+    .screen{
+      position:relative;
+      width:min(100vw, 420px); /* largeur max “téléphone”, ajuste si tu veux */
+      overflow:hidden;
+    }
+
+    /* Background : on respecte l’image (pas de cover) */
+    .bg{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Overlay : même largeur que le background, donc même échelle */
+    .overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none; /* tout passe au bouton uniquement */
+    }
+
+    /* Le bouton “pré-positionné” (png avec marges) */
+    .btn{
+      position:absolute;
+      inset:0;              /* prend TOUT l’écran */
+      display:block;
+      pointer-events:auto;  /* re-cliquable */
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .btn img{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .btn:active img{ transform: scale(.995); }
+  </style>
+</head>
+<body>
+
+  <main class="screen" aria-label="Cactus 1">
+    <!-- Bg -->
+    <img class="bg" src="Bg1.jpg" alt="Accueil AdopteUnCactus">
+
+    <!-- Overlay bouton -->
+    <div class="overlay" aria-hidden="true">
+      <a class="btn" href="cactus2.html" aria-label="Je me pique au jeu">
+        <!-- btn1.png doit être un PNG “plein écran” avec transparence + le bouton en bas -->
+        <img src="btn1.png" alt="">
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>
