@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>AdopteUnCactus — Cactus3</title>
+
+  <style>
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:#fff}
+    body{
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    .screen{
+      position:relative;
+      width:min(100vw, 420px);
+      overflow:hidden;
+      background:#000;
+    }
+
+    /* Background responsive, sans cover */
+    .bg{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Overlay visuel (non cliquable) */
+    .overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:2;
+    }
+    .overlay img{
+      width:100%;
+      height:auto;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Seul hotspot cliquable */
+    .hotspot{
+      position:absolute;
+      display:block;
+      background:rgba(255,255,255,0);
+      -webkit-tap-highlight-color:transparent;
+      z-index:3;
+    }
+
+    /* ✅ Bouton "Envoyer un message" (ajuste si besoin) */
+    .send{
+      left: 12%;
+      top: 70%;
+      width: 76%;
+      height: 9%;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="screen" aria-label="Cactus 3">
+    <img class="bg" src="Bg3.jpg" alt="Match AdopteUnCactus">
+
+    <div class="overlay" aria-hidden="true">
+      <img src="btn3.png" alt="">
+    </div>
+
+    <!-- ✅ Seul clic : ouvre WhatsApp vers TON numéro -->
+    <a class="hotspot send" id="waLink" href="#" aria-label="Envoyer un message sur WhatsApp"></a>
+  </main>
+
+  <script>
+    // Ton numéro WhatsApp (FR) : 06 14 73 35 56 => 33 + sans le 0 => 33614733556
+    const phone = "33614733556";
+
+    // Message pré-rempli (modifie-le comme tu veux)
+    const message = "Salut 😄🌵 On dirait qu’on vient de matcher sur AdopteUnCactus… On se pique un peu mais promis je suis gentil 😌";
+
+    // Lien WhatsApp direct vers ton numéro
+    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+    const link = document.getElementById("waLink");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+  </script>
+</body>
+</html>
